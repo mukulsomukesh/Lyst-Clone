@@ -19,7 +19,7 @@ function Navbar(){
 </Flex>
 
 
-<Flex w="96%" m="auto">
+<Flex w="96%" m="auto" mb="10px">
 <Center>
 <Image src={logo}  width="80%" h="35px" w="100px" alt='image' />
  <Spacer></Spacer>
