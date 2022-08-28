@@ -1,9 +1,27 @@
-import { Checkbox, Flex, Box, Text, FormControl, ButtonGroup, IconButton, Input, FormLabel, FormHelperText, Button } from "@chakra-ui/react";
+import {useToast, successAlert, Alert, AlertIcon, Box, Text, FormControl, ButtonGroup, IconButton, Input, FormLabel, FormHelperText, Button } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { GrFacebook } from "react-icons/gr";
 
 function SignUp() {
+
+        const toast = useToast()
+        const toastMessage ={
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+          }
+
+          const handelRedirect = () => {
+            setTimeout(function() { 
+                let path = `/products`;
+                window.location.replace(path);
+          
+            }, 2200);
+        }
+
     return (
         <>
             <Box textAlign="center">
@@ -22,20 +40,24 @@ function SignUp() {
                     </Box>
                 </FormControl>
 
-                <Button w="100%" bg='black' mt="30px" borderRadius={"0px"} h="40px" colorScheme="white"> Join Lyst </Button>
+                <Button w="100%"  onClick={() =>  {toast(toastMessage) 
+                    handelRedirect()}}  bg='black' mt="30px" borderRadius={"0px"} h="40px" colorScheme="white"> Join Lyst </Button>
                 <Text fontSize='md' lineHeight={"30px"} textAlign="center"> or </Text>
 
-                <ButtonGroup w="100%" isAttached variant='outline' mb="10px">
+                <ButtonGroup w="100%" isAttached variant='outline' mb="10px"  onClick={() =>  {toast(toastMessage) 
+                    handelRedirect()}}>
                     <IconButton bg="#3d5c98" borderRadius={"0px"} borderRight="none" icon={<GrFacebook color='white'></GrFacebook>} />
-                    <Button bg="#3d5c98" color="white" borderRadius={"0px"} borderLeft="none" w="98%">Continue with Facebook</Button>
+                    <Button bg="#3d5c98" color="white"   borderRadius={"0px"} borderLeft="none" w="98%">Continue with Facebook</Button>
                 </ButtonGroup>
 
-                <ButtonGroup w="100%" isAttached variant='outline' mb="10px">
+                <ButtonGroup w="100%" isAttached variant='outline' mb="10px"  onClick={() =>  {toast(toastMessage) 
+                    handelRedirect()}} >
                     <IconButton borderRadius={"0px"} borderRight="none" icon={<FaApple></FaApple>} />
                     <Button borderRadius={"0px"} borderLeft="none" fontWeight={"normal"} w="98%">Continue with Apple</Button>
                 </ButtonGroup>
 
-                <ButtonGroup w="100%" isAttached variant='outline'>
+                <ButtonGroup w="100%" isAttached variant='outline' onClick={() =>  {toast(toastMessage) 
+                    handelRedirect()}} >
                     <IconButton borderRadius={"0px"} borderRight="none" icon={<FcGoogle></FcGoogle>} />
                     <Button borderRadius={"0px"} borderLeft="none" w="98%">Continue with Google</Button>
                 </ButtonGroup>
