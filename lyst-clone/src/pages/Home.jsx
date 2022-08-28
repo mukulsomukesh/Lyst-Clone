@@ -4,13 +4,13 @@ import FirstSlider from "../components/FirstSlider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SecondSlider from '../components/SecondSlider';
-import { Fade, ScaleFade, Slide, SlideFade } from '@chakra-ui/react'
+import { useNavigate, Link } from "react-router-dom";
 
 function Home() {
+
+
     return (
         <>
-            {/* navbar */}
-            <Navbar></Navbar>
             {/* front image */}
             <Image src="https://cdna.lystit.com/cms/ENG_header_desktop_bddf9b3474_884ff704d3.jpg" borderTop={"1px"} borderBottom={"1px"} mb="80px" w="100%" h="82vh" />
             {/* first slider or slider with verticle text */}
@@ -45,10 +45,10 @@ function Home() {
                 <Box bg="#cafc4f" borderLeft={"1px"} w="28%" h="100%" p="40px">
                     <Text fontSize='5xl' lineHeight={"42px"} mt="100px"> SING UP FOR SMARTER SHOPPING</Text>
 
-                    <Box as='button' h='40px' w="120px" lineHeight='1.2' px='8px' mt="20px" fontSize='14px' bg='black' color='white'>
+                      <Link to="/join"> <Box as='button' h='40px' w="120px" lineHeight='1.2' px='8px' mt="20px" fontSize='14px' bg='black' color='white'>
                         Join <ArrowForwardIcon />
-                    </Box>
-                </Box>
+                    </Box></Link>
+                                    </Box>
                 <Box bg="#cafc4f" w="10%" h="100%"> </Box>
             </Flex>
 
@@ -85,8 +85,6 @@ function Home() {
 
             </Flex>
 
-            {/* footer */}
-            <Footer></Footer>
 
         </>
     );
